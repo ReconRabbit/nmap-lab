@@ -18,7 +18,8 @@ RUN sed -i 's/^#*PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config ||
 # create the user using build args, set the password, and give them a home
 RUN useradd -m -s /bin/bash ${USERNAME} && \
     echo "${USERNAME}:${PASSWORD}" | chpasswd && \
-    mkdir -p /home/${USERNAME}/.ssh && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
+    mkdir -p /home/${USERNAME}/.ssh && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} && \
+    usermod -aG sudo attacker
 
 # copy entrypoint and make executable
 COPY entrypoint-node.sh /entrypoint-node.sh
