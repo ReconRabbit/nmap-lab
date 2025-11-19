@@ -23,8 +23,8 @@ services:
       context: .
       dockerfile: Dockerfile.node
       args:
-        USERNAME: pc1
-        PASSWORD: pc1
+        USERNAME: user
+        PASSWORD: pickles
     container_name: pc1
     tty: true
     networks:
@@ -55,8 +55,8 @@ services:
       context: .
       dockerfile: Dockerfile.node
       args:
-        USERNAME: pc2
-        PASSWORD: pc2
+        USERNAME: admin
+        PASSWORD: 1qaz2wsx
     container_name: pc2
     tty: true
     networks:
