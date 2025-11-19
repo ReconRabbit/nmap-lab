@@ -25,6 +25,7 @@ RUN useradd -m -s /bin/bash ${USERNAME} && \
 RUN usermod -aG sudo ${USERNAME}
 RUN apt update && \
         DEBIAN_FRONTEND=noninteractive apt install -y sudo
+
 # copy entrypoint and make executable
 COPY entrypoint-node.sh /entrypoint-node.sh
 RUN chmod +x /entrypoint-node.sh
