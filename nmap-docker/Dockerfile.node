@@ -2,9 +2,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG USERNAME=demo
-ARG PASSWORD=demo
-
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       openssh-server iproute2 iputils-ping net-tools iptables \
