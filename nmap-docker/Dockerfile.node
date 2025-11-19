@@ -23,7 +23,8 @@ RUN useradd -m -s /bin/bash ${USERNAME} && \
     echo "${USERNAME}:${PASSWORD}" | chpasswd && \
     mkdir -p /home/${USERNAME}/.ssh && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
 RUN usermod -aG sudo ${USERNAME}
-
+RUN apt update && \
+        DEBIAN_FRONTEND=noninteractive apt install -y sudo
 # copy entrypoint and make executable
 COPY entrypoint-node.sh /entrypoint-node.sh
 RUN chmod +x /entrypoint-node.sh
