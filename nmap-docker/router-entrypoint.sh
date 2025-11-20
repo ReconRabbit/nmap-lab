@@ -12,6 +12,15 @@ iptables -X
 # Allow forwarding between interfaces
 iptables -P FORWARD ACCEPT
 
+# 1. DROP traffic from attacker (172.28.0.10) → target (172.29.0.11)
+iptables -A FORWARD -s 172.28.0.10 -d 172.29.0.11 -j DROP
+
+# 2. ALLOW traffic from student box (172.28.0.11) → target (172.29.0.11)
+iptables -A FORWARD -s 172.28.0.11 -d 172.29.0.11 -j ACCEPT
+
+# 3. Allow all other forwarding
+iptables -A FORWARD -j ACCEPT
+
 # (Optional) masquerade outbound when needed — here we don't NAT internal subnets to host
 # but uncomment if you want NAT from net_a->net_b or vice versa:
 # iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE

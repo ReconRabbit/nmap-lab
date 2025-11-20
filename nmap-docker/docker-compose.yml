@@ -1,14 +1,13 @@
-version: "3.9"
-
 services:
   attacker:
     build:
       context: .
-      dockerfile: Dockerfile.node
+      dockerfile: Dockerfile1.node
       args:
         USERNAME: attacker
         PASSWORD: attacker
     container_name: attacker
+    hostname: attacker
     tty: true
     networks:
       net_a:
@@ -21,11 +20,12 @@ services:
   pc1:
     build:
       context: .
-      dockerfile: Dockerfile.node
+      dockerfile: Dockerfile2.node
       args:
         USERNAME: user
         PASSWORD: pickles
     container_name: pc1
+    hostname: userPC
     tty: true
     networks:
       net_a:
@@ -53,11 +53,12 @@ services:
   pc2:
     build:
       context: .
-      dockerfile: Dockerfile.node
+      dockerfile: Dockerfile3.node
       args:
         USERNAME: admin
         PASSWORD: 1qaz2wsx
     container_name: pc2
+    hostname: adminPC
     tty: true
     networks:
       net_b:

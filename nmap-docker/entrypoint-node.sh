@@ -27,5 +27,14 @@ nohup ncat -l -k -p 9001 -c 'echo "Hello from $(hostname) on port 9001"' >/dev/n
 # port 9002 keeps a shell echo
 nohup ncat -l -k -p 9002 -c 'while read l; do echo "You said: $l"; done' >/dev/null 2>&1 &
 
+if [ -f /dockerfile3.sh ]; then
+	chmod +x /dockerfile3.sh
+	/dockerfile3.sh
+fi
+
+if [ -f /dockerfile2.sh ]; then
+        chmod +x /dockerfile2.sh
+        /dockerfile2.sh
+fi
 # keep container alive
 tail -f /dev/null
