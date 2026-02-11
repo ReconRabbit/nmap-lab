@@ -22,10 +22,10 @@ services:
       context: .
       dockerfile: Dockerfile2.node
       args:
-        USERNAME: user
+        USERNAME: JWick
         PASSWORD: pickles
     container_name: pc1
-    hostname: userPC
+    hostname: JWickPC
     tty: true
     networks:
       net_a:
