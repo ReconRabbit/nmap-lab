@@ -4,7 +4,7 @@ nohup ncat -l -k -p 9 -c 'echo "Hello from $(hostname) on port 9"' >/dev/null 2>
 
 nohup ncat -l -k -p 21 -c 'echo "Hello from $(hostname) on port 21"' >/dev/null 2>&1 &
 
-nohup ncat -l -k -p 23 -c 'echo "Hello from $(hostname) on port 23"' >/dev/null 2>&1 &
+nohup ncat -l -k -p 23 -c 'echo "FLAG{HOW DO I TURN OFF TELNET!?!?}"' >/dev/null 2>&1 &
 
 nohup ncat -l -k -p 53 -c 'echo "Hello from $(hostname) on port 53"' >/dev/null 2>&1 &
 
