@@ -12,11 +12,11 @@ iptables -X
 # Allow forwarding between interfaces
 iptables -P FORWARD ACCEPT
 
-# 1. DROP traffic from attacker (172.28.0.10) → target (172.29.0.11)
-iptables -A FORWARD -s 172.28.0.10 -d 172.29.0.11 -j DROP
+# 1. DROP traffic from attacker (172.28.0.10) → admin target (172.29.0.50)
+iptables -A FORWARD -s 172.28.0.10 -d 172.29.0.50 -j DROP
 
-# 2. ALLOW traffic from student box (172.28.0.11) → target (172.29.0.11)
-iptables -A FORWARD -s 172.28.0.11 -d 172.29.0.11 -j ACCEPT
+# 2. ALLOW traffic from JWick (172.28.0.11) → admin target (172.29.0.50)
+iptables -A FORWARD -s 172.28.0.11 -d 172.29.0.50 -j ACCEPT
 
 # 3. Allow all other forwarding
 iptables -A FORWARD -j ACCEPT
